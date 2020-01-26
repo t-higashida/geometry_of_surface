@@ -1,0 +1,198 @@
+\chapter{曲面の微分幾何学}
+
+\section{曲面の曲がり方}
+
+p5
+\begin{align*}
+  2f_0(x,y) & =ax^2 + 2bxy + cy^2 \\
+            & =  a(x'\cos \theta - y' \sin \theta)^2
+                +2b(x'\cos \theta - y' \sin \theta)(x' \sin \theta + y' \cos \theta)
+                +c(x' \sin \theta + y' \cos \theta)^2 \\
+            & = (a \cos^2 \theta + 2b \cos \theta \sin \theta + c \sin^2 \theta){x'}^2 \\
+            & \quad +(-2a \cos \theta \sin \theta + 2b \cos^2 \theta -2b \sin^2 \theta + 2c \cos \theta \sin \theta)x'y' \\
+            & \quad +(a \sin^2 \theta - 2b \cos \theta + \sin \theta + c \cos^2 \theta ) {y'}^2
+\end{align*}
+
+（中略）
+\[
+	-a \tan \theta + b(1-\tan^2 \theta ) +c \tan \theta =0
+\]
+となる．これを$\tan \theta$について解けば，
+\begin{align*}
+	& b \tan ^2 \theta + (a-c) \tan^2 \theta -b=0 \\
+  & \tan \theta = \frac{(a-c) \pm \sqrt{(a-c)^2 + 4b^2}}{2b}
+\end{align*}
+
+（保留）
+
+\begin{align*}
+  \lambda &= a \cos^2 \theta + 2 b \cos \theta \sin \theta + c \sin^2 \theta \\
+          &= \frac{1}{2} (2a \sin^2 \theta + 4b\sin \theta \cos \theta + 2 c\cos^2 \theta) \\
+          &= \frac{1}{2} ((a+c) -a \cos^2 \theta + a \sin^2 \theta + c\cos^2 \theta - c \sin^2 \theta + 2b\sin 2 \theta ) \\
+          &= \frac{1}{2} \{ (a+c) + (a-c) \cos 2 \theta + 2b \sin 2 \theta \} \\
+  \mu     &= a \cos^2 \theta - 2 b \cos \theta \sin \theta + c \sin^2 \theta \\
+          &= \frac{1}{2}(2 a \sin^2 \theta -4b \sin \theta \cos \theta + 2 c \cos^2 \theta) \\
+          &= \frac{1}{2}((a+c) -a \cos^2 \theta + a \sin^2 \theta + c\cos^2 \theta - c \sin^2 \theta - 2b\sin 2 \theta ) \\
+          &= \frac{1}{2} \{(a+c) - (a-c) \cos 2 \theta - 2b \sin 2 \theta\}
+\end{align*}
+簡単な計算
+\begin{align*}
+  \lambda \mu &=  \frac{1}{2} \{ (a+c) + (a-c) \cos 2 \theta + 2b \sin 2 \theta \}
+                 \cdot
+                 \frac{1}{2} \{ (a+c) - (a-c) \cos 2 \theta - 2b \sin 2 \theta \} \\
+              &= \frac{1}{4}
+                  \{
+                     (a+c)^2  - (a^2 - c^2) \cos 2 \theta - 2b (a+c) \sin 2 \theta) \\
+              &\qquad    + (a^2-c^2) \cos 2 \theta - (a-c)^2 \cos^2 2 \theta - 2 (a-c)b \cos  2 \theta \sin 2 \theta \\
+              &\qquad    + 2b (a+c) \sin 2 \theta -2 (a-c) b \sin 2 \theta \cos 2 \theta - 4b^2 \sin^2 2 \theta )
+                  \}\\
+              &= \frac{1}{4}
+                  \{
+                    	(a+c)^2 - (a-c)^2 \cos^2 2 \theta -4 (a-c)b \cos 2 \theta \sin 2 \theta -4b^2 \sin^2 2 \theta
+                  \} \\
+              &= \frac{1}{4}
+                  \{
+                    (a+c)^2 - (a-c)^2 + (a-c)^2 \sin^2 2 \theta -4 (a-c)b \cos 2 \theta \sin 2 \theta -4b^2 + 4b^2 \cos^2 2 \theta
+                  \}\\
+              &= ac-b^2 +
+                 \frac{1}{4}
+                  \{
+                     (a-c) \sin 2 \theta - 2 b \cos 2 \theta
+                  \}^2 \\
+              &= ac-b^2 +
+                 \frac{1}{4}
+                  \{
+                     2 (a-c)\sin \theta \cos \theta - 2 b (\cos^2 2 \theta - \sin^2 \theta)
+                  \}^2
+\end{align*}
+最後の項
+$\displaystyle \quad
+                 \frac{1}{2}
+                  \{
+                     (a-c)\sin \theta \cos \theta - b (\cos^2 2 \theta - \sin^2 \theta)
+                  \}^2
+\quad$
+は$x'y'$の係数だから$0$．
+\[
+ \lambda \mu = ac-b^2
+\]
+
+p7
+
+\begin{align*}
+	a_1 &= \frac{\partial^2 f_1}{\partial x_1^2}
+       = \left(
+            \frac{\partial x}{\partial x_1}
+          \right)^2
+            \frac{\partial ^2 f}{\partial x^2}(0,0)
+     + 2  \left(
+            \frac{\partial x}{\partial x_1}
+          \right)
+          \left(
+            \frac{\partial y}{\partial x_1}
+          \right)
+          \frac{\partial ^2 f}{\partial x \partial y}(0,0)
+     +    \left(
+            \frac{\partial y}{\partial x_1}
+          \right)^2
+          \frac{\partial ^2 f}{\partial y^2}(0,0) \\
+      &= \alpha^2 a + 2 \alpha \gamma b + \gamma^2 c \\
+	b_1 &= \frac{\partial^2 f_1}{\partial x_1 \partial y_1}
+       = \frac{\partial }{\partial y_1}
+         \left(
+           \frac{\partial f}{\partial x}\frac{\partial x}{\partial x_1}
+            +
+           \frac{\partial f}{\partial y}\frac{\partial y}{\partial x_1}
+         \right)
+       = \frac{\partial }{\partial y_1}
+         \left(
+           \frac{\partial f}{\partial x}\alpha
+            +
+           \frac{\partial f}{\partial y}\gamma
+         \right) \\
+      &= \left( \frac{\partial ^2 f}{\partial x^2}\frac{\partial x}{\partial y_1}
+               +\frac{\partial ^2 f}{\partial x\partial y}\frac{\partial y}{\partial y_1}
+         \right) \alpha
+       + \left(
+                \frac{\partial f}{\partial y \partial x}\frac{\partial x}{\partial y_1}
+               +\frac{\partial ^2 f}{\partial y^2}\frac{\partial y}{\partial y_1}
+         \right) \gamma
+         \\
+      &= ( a \beta +b\delta )\alpha
+       + (
+           b \beta + c \delta
+         ) \gamma
+       = \alpha\beta a + (\alpha\delta + \gamma \beta)b+ \gamma \delta c \\
+  c_1 &= \frac{\partial ^2f_1}{\partial y_1^2}
+       = \left(
+         \frac{\partial x}{\partial y_1}
+         \right)^2 \frac{\partial ^2 f}{\partial x^2}
+     + 2 \left( \frac{\partial x}{\partial y_1}
+         \right)
+         \left( \frac{\partial y}{\partial y_1}
+         \right)
+         \frac{\partial ^2 f}{\partial x \partial y}
+     + \left(
+         \frac{\partial y}{\partial y_1}
+       \right)^2
+       \frac{\partial ^2 f}{\partial y^2}\\
+     &= \beta^2 a +2 \beta \delta b + \delta^2 c
+\end{align*}
+
+p7
+
+これを行列の言葉で表せば，
+\begin{align*}
+	\text{Hess}_O(f_1)  = \begin{pmatrix}
+		                      a_1 & b_1 \\
+                          b_1 & c_1
+												\end{pmatrix}
+                     &= \begin{pmatrix}
+		                      \alpha^2 a + 2 \alpha \gamma b + \gamma^2 c &
+                          \alpha \beta a + (\beta \gamma + \alpha \delta)b + \gamma \delta c  \\
+                          \alpha\beta a + ( \alpha \delta + \beta \delta) b + \delta \gamma c &
+                          \beta^2 a + 2 \beta \delta b + \delta^2 c
+												\end{pmatrix} \\
+                     &= \begin{pmatrix}
+		                      \alpha a + \gamma b & \alpha b + \gamma c \\
+                          \beta a + \delta b  & \beta b + \delta c
+												\end{pmatrix}
+                        \begin{pmatrix}
+		                      \alpha & \beta \\
+                          \gamma & \delta
+												\end{pmatrix} \\
+                     &= \begin{pmatrix}
+		                      \alpha & \beta \\
+                          \beta  & \gamma
+												\end{pmatrix}
+                        \begin{pmatrix}
+		                        a     &  b \\
+                            b     &  c
+												\end{pmatrix}
+                        \begin{pmatrix}
+		                      \alpha & \beta \\
+                          \beta  & \gamma
+												\end{pmatrix} \\
+                     &= \begin{pmatrix}
+		                      \alpha & \beta \\
+                          \beta  & \gamma
+												\end{pmatrix}
+                        \text{Hess}_O (f)
+                        \begin{pmatrix}
+		                      \alpha & \beta \\
+                          \beta  & \gamma
+												\end{pmatrix} \\
+\end{align*}
+
+p10
+
+\textbf{（実）ユニタリ空間}
+
+内積空間（inner product space）あるいは前ヒルベルト空間（pre-Hilbert space）、
+計量ベクトル空間（metric vector space）などとも呼び，
+内積が定義された線形空間のこと．
+ユニタリ空間では、その内積を使ってベクトルに対して長さ（ノルム）や
+直交という概念を考えることができ、それによって距離空間としての位相構造が定義される。
+また、正規直交基底（長さ 1 に規格化された、どの二つも互いに直交するようなベクトルからなる基底）
+を持つベクトル空間として計量ベクトル空間を捉えることができる
+
